@@ -18,26 +18,62 @@
     \titlepage
 \end{frame}
 
-\note{Sample}
+\section{Introduction}
 
-\begin{frame}
-    \frametitle{Sample frame title}
+\begin{frame}{Main observation}
+    Functions in computer programming are not mathematical functions
+    \note<1>{They do all sort of weird things, like
+        \begin{itemize}
+            \item Return different outputs for the same inputs (not well
+                defined)
+            \item Modify global state (very foreign to mathematics)
+        \end{itemize}
+    }
 
-    In this slide, some important text will be
-    \alert{highlighted} because it's important.
-    Please, don't abuse it.
+    \pause
 
-    \begin{block}{Remark}
-        Sample text
-    \end{block}
+    \begin{itemize}
+        \item reading from memory
+        \item writing to memory
+    \end{itemize}
+    \note<2>{These can be all expressed in terms of memory IO, outside their
+    inputs}
 
-    \begin{alertblock}{Important theorem}
-        Sample text in red box
-    \end{alertblock}
+    \pause
 
-    \begin{examples}[Example name]
-        Sample text in green box.
-    \end{examples}
+    If they were, we could better reason about code and get benefits
+    \note<3>{We is the compiler\par}
+    \begin{itemize}
+        \item memorization
+        \item automatic parallelization
+    \end{itemize}
+    \note<3>{Explain memorization and parallelization\par}
+    \note<3>{other benefits include code safety
+        \begin{itemize}
+            \item not letting your functions interfere with others
+            \item not letting your functions be affected by the effects of
+                others
+        \end{itemize}
+    }
 \end{frame}
 
+\begin{frame}{Definitions}
+    \note{Definitions from the original report\par}
+    \begin{definition}[Procedure]
+        We call functions in computer programming~\emph{procedures}.
+    \end{definition}
+    \note<1>{We may call simply them functions if the context is clear}
+
+    \pause
+
+    \begin{definition}[Pure function]
+        If a procedure reads from memory we say it is~\emph{non-deterministic},
+        and if it writes to memory we say it has~\emph{side-effects}.
+
+        We say that a procedure that is deterministic and does~\alert{not} have
+        side-effects is a~\emph{pure} function.
+    \end{definition}
+    \note<2>{Pure functions behave like mathematical functions, and we can treat
+    them like such when reasoning}
+\end{frame}
 \end{document}
