@@ -86,7 +86,7 @@
 
 \section{Kleisli triples}
 
-\begin{frame}{Purifying functions: Examples}
+\begin{frame}{Procedure purifying examples}
     We can make an impure function pure by changing its codomain.
 
     \note{Impure functions in Set can be viewed as pure in an appropriate
@@ -118,11 +118,11 @@
     \end{example}
 \end{frame}
 
-\begin{frame}{Purifying functions: Generalization}
+\begin{frame}{Procedure purifying generalization}
     \begin{definition}[Kleisli triples]
         We define a~\emph{Kleisli triple} over a category~\(\cat{C}\) as a
         triple~\((T,\eta,(-)^{\ast})\) consisting of
-        \begin{enumerate}
+        \begin{itemize}
             \item a class function
                 \(T:\Obj(\cat{C})\longrightarrow\Obj(\cat{C})\).
 
@@ -132,9 +132,9 @@
 
             \item for all~\(f:A\longrightarrow TB\) a
                 morphism~\(f^{\ast}:TA\longrightarrow TB\).
-        \end{enumerate}
+        \end{itemize}
         such that
-        \begin{enumerate}
+        \begin{itemize}
             \item for all~\(A\in\cat{C}\) we have
                 \({\eta_{A}}^{\ast} = \id_{TA}:TA\longrightarrow TA\).
 
@@ -143,7 +143,7 @@
 
             \item for all~\(f:A\to TB,g:B\to TC\) we
                 have~\(g^{\ast}\circ f^{\ast} = (g^{\ast}\circ f)^{\ast}\).
-        \end{enumerate}
+        \end{itemize}
     \end{definition}
     \note{This is a very powerful definition}
 \end{frame}
