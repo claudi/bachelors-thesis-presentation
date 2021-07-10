@@ -5,8 +5,8 @@
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{lmodern}
 \usepackage{microtype}
-\usepackage{tikz}
-\usetikzlibrary{cd}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows}
 
 \usetheme{Boadilla}
 
@@ -146,5 +146,53 @@
         \end{itemize}
     \end{definition}
     \note{This is a very powerful definition}
+\end{frame}
+
+\begin{frame}[fragile]{Kleisli triples and monads}
+    \begin{theorem}
+        A Kleisli triple~\((T,\eta,(-)^{\ast})\) induces
+        \begin{itemize}
+            \item an endofunctor~\(T:\cat{C}\rightarrow\cat{C}\),
+                by setting~\(f\mapsto(\eta_{B}\circ f)^{\ast}\)
+
+            \item two natural transformations~\(\eta:\id\rightarrow T\)
+                and~\(\mu:TTT\rightarrow TT\) with commutative diagrams
+                \[
+                    \begin{tikzcd}
+                        TA \arrow{r}{T\eta_{A}} \arrow{dr}{} & TTA \arrow{d}{\mu_{A}} & TA \arrow{l}[swap]{\eta_{TA}} \arrow{dl}{} \\
+                                                             & TA \arrow{ul}{\id_{TA}} \arrow{ur}[swap]{\id_{TA}} &
+                    \end{tikzcd}
+                    \qquad\text{and}\qquad
+                    \begin{tikzcd}
+                        TTTA \arrow{r}{\mu_{TA}} \arrow{d}{T\mu_{A}} & TTA \arrow{d}{\mu_{A}} \\
+                        TTA \arrow{r}{\mu_{A}} & TA
+                    \end{tikzcd}
+                \]
+                by setting~\(\mu=(\id_{T})^{\ast}\).
+        \end{itemize}
+    \end{theorem}
+
+    \note<1>{
+        The object part of~\(T\) and the natural transformation~\(\eta\) are the
+        ones defined by the Kleisli triple
+
+        This precisely is the definition of a~\emph{monad}~\((T,\eta,\mu)\).
+
+        Every Kleisli triple induces a monad.
+    }
+
+    \pause
+
+    \begin{theorem}
+        A monad~\((T,\eta,\mu)\) induces a Kleisli triple
+        \begin{itemize}
+            \item for any morphism~\(f:A\rightarrow B\)
+                set~\(f^{\ast}=\mu_{B}\circ Tf\)
+        \end{itemize}
+    \end{theorem}
+
+    \note<2>{
+        In fact, we will see that the converse is also true
+    }
 \end{frame}
 \end{document}
