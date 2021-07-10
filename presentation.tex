@@ -76,4 +76,35 @@
     \note<2>{Pure functions behave like mathematical functions, and we can treat
     them like such when reasoning}
 \end{frame}
+
+\section{Kleisli triples}
+
+\begin{frame}{Purifying functions: Examples}
+    We can make an impure function pure by changing its codomain.
+
+    \note{Impure functions in Set can be viewed as pure in an appropriate
+    category}
+
+    \pause
+
+    \begin{example}[Non-determinism]
+        If~\(\tilde{f}:A\longrightarrow B\) is non-deterministic, we can define
+        a function of all possible outputs
+        \[
+            f:A\longrightarrow\mathcal{P}(B)
+        \]
+        which becomes deterministic
+    \end{example}
+
+    \pause
+
+    \begin{example}[Side-effects]
+        If~\(\tilde{f}:A\longrightarrow B\) has side-effects, we can define a
+        function to track the effects on the set of states~\(S\) and the result
+        \[
+            f:A\longrightarrow(S\times B)^{S}
+        \]
+        which has no side-effects.
+    \end{example}
+\end{frame}
 \end{document}
