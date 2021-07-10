@@ -5,8 +5,15 @@
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{lmodern}
 \usepackage{microtype}
+\usepackage{tikz}
+\usetikzlibrary{cd}
 
 \usetheme{Boadilla}
+
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\id}{\mathrm{id}}
+
+\DeclareMathOperator{\Obj}{Obj}
 
 \title{Monads in Haskell}
 \author{Claudi Lleyda Moltó}
@@ -106,5 +113,34 @@
         \]
         which has no side-effects.
     \end{example}
+\end{frame}
+
+\begin{frame}{Purifying functions: Generalization}
+    \begin{definition}[Kleisli triples]
+        We define a~\emph{Kleisli triple} over a category~\(\cat{C}\) as a
+        triple~\((T,\eta,(-)^{\ast})\) consisting of
+        \begin{enumerate}
+            \item a class function
+                \(T:\Obj(\cat{C})\longrightarrow\Obj(\cat{C})\).
+
+            \item for all~\(A\in\cat{C}\)
+                a morphism~\(\eta_{A}:A\longrightarrow TA\)
+                in~\(\cat{C}\).
+
+            \item for all~\(f:A\longrightarrow TB\) a
+                morphism~\(f^{\ast}:TA\longrightarrow TB\).
+        \end{enumerate}
+        such that
+        \begin{enumerate}
+            \item for all~\(A\in\cat{C}\) we have
+                \({\eta_{A}}^{\ast} = \id_{TA}:TA\longrightarrow TA\).
+
+            \item for all~\(A,B\in\cat{C}\) and \(f:A\longrightarrow TB\) we
+                have~\(f^{\ast}\circ\eta_{A} = f\).
+
+            \item for all~\(f:A\to TB,g:B\to TC\) we
+                have~\(g^{\ast}\circ f^{\ast} = (g^{\ast}\circ f)^{\ast}\).
+        \end{enumerate}
+    \end{definition}
 \end{frame}
 \end{document}
