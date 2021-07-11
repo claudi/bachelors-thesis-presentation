@@ -7,6 +7,8 @@
 \usepackage{microtype}
 \usepackage{tikz-cd}
 \usetikzlibrary{arrows}
+\usepackage{minted}
+\setminted{xleftmargin=1cm}
 
 \usetheme{Boadilla}
 
@@ -216,5 +218,140 @@
                 abstract manipulation.
         \end{itemize}
     }
+\end{frame}
+
+\section{Haskell}
+
+\begin{frame}{Haskell}
+    \begin{block}{Remark}
+        \begin{itemize}
+            \item We have an abstract solution for a computer science problem.
+
+                \note<1>{So far, we have introduced an abstraction that should
+                    allow us to have a programming language where all functions are
+                pure, such that the compiler can reason about them.\par}
+
+            \item It might not be useful in practice.
+
+                \note<1>{It is not clear how it would be implemented or if it
+                would be feasible.\par}
+        \end{itemize}
+    \end{block}
+
+    \pause
+
+    Haskell, introduced in 1990, is a general-purpose programming language where
+    all functions are pure, and does so by successfully implementing these
+    abstractions.
+
+    \note<2>{We cannot introduce a full blown programming language in a 15
+    minutes presentation, but we can explore some of its features}
+\end{frame}
+
+\begin{frame}[fragile]{Haskell}
+    \note<1>{Broadly speaking\par}
+    \note<1>{Define \emph{type}}
+
+    A~\mintinline{Haskell}{Monad m} in Haskell can be regarded as a map
+    between~\emph{types}, and has two operations
+    \begin{minted}{Haskell}
+(>>=) :: m a -> (a -> m b) -> m b
+    \end{minted}
+    and
+    \begin{minted}{Haskell}
+return :: a -> m a
+    \end{minted}
+
+    \note<1>{\begin{itemize}
+            \item The first operation is called~\emph{bind}
+
+            \item Read lines out loud
+
+            \item Mention multiple arguments
+    \end{itemize}}
+
+    \pause
+
+    Which remind us of~\((-)^{\ast}\), which for all~\(f:A\longrightarrow TB\)
+    gave~\(f^{\ast}:TA\longrightarrow TB\), and the
+    map~\(\eta_{A}:A\longrightarrow TA\), respectively.
+
+    \note<2>{Start with~\mintinline{Haskell}{return}
+
+        The trick for bind is to switch the argument order
+
+        Combining these functions with~\emph{strong typing} and some other
+    programming features is enough.}
+\end{frame}
+
+\begin{frame}[fragile]{Haskell}
+    A~\mintinline{Haskell}{Monad m} in Haskell can be regarded as a map
+    between~\emph{types}, and has two operations
+    \begin{minted}{Haskell}
+(>>=) :: (m a, (a -> m b)) -> m b
+    \end{minted}
+    and
+    \begin{minted}{Haskell}
+return :: a -> m a
+    \end{minted}
+
+    Which remind us of~\((-)^{\ast}\), which for all~\(f:A\longrightarrow TB\)
+    gave~\(f^{\ast}:TA\longrightarrow TB\), and the
+    map~\(\eta_{A}:A\longrightarrow TA\), respectively.
+\end{frame}
+
+\begin{frame}[fragile]{Haskell}
+    A~\mintinline{Haskell}{Monad m} in Haskell can be regarded as a map
+    between~\emph{types}, and has two operations
+    \begin{minted}{Haskell}
+(>>=) :: ((a -> m b), m a) -> m b
+    \end{minted}
+    and
+    \begin{minted}{Haskell}
+return :: a -> m a
+    \end{minted}
+
+    Which remind us of~\((-)^{\ast}\), which for all~\(f:A\longrightarrow TB\)
+    gave~\(f^{\ast}:TA\longrightarrow TB\), and the
+    map~\(\eta_{A}:A\longrightarrow TA\), respectively.
+\end{frame}
+
+\begin{frame}[fragile]{Haskell}
+    A~\mintinline{Haskell}{Monad m} in Haskell can be regarded as a map
+    between~\emph{types}, and has two operations
+    \begin{minted}{Haskell}
+(>>=) :: (a -> m b) -> (m a -> m b)
+    \end{minted}
+    and
+    \begin{minted}{Haskell}
+return :: a -> m a
+    \end{minted}
+
+    Which remind us of~\((-)^{\ast}\), which for all~\(f:A\longrightarrow TB\)
+    gave~\(f^{\ast}:TA\longrightarrow TB\), and the
+    map~\(\eta_{A}:A\longrightarrow TA\), respectively.
+\end{frame}
+
+\begin{frame}{Conclusions}
+    \begin{itemize}
+        \item The abstraction can be applied rather directly, and it
+            successfully leads to the previously mentioned benefits.
+
+            \pause
+
+        \item This is done by expanding on concepts already found in computer
+            science.
+
+            \pause
+
+        \item These features have been introduced into most other languages to
+            some extent.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{center}
+        \Huge Thanks!
+    \end{center}
 \end{frame}
 \end{document}
