@@ -147,7 +147,7 @@
                 have~\(g^{\ast}\circ f^{\ast} = (g^{\ast}\circ f)^{\ast}\).
         \end{itemize}
     \end{definition}
-    \note{This is a very powerful definition}
+    \note{This is a very powerful definition, as shown in the next slide}
 \end{frame}
 
 \begin{frame}[fragile]{Kleisli triples and monads}
@@ -175,12 +175,18 @@
     \end{theorem}
 
     \note<1>{
-        The object part of~\(T\) and the natural transformation~\(\eta\) are the
-        ones defined by the Kleisli triple
+        \begin{itemize}
+            \item The object part of~\(T\) and the natural
+                transformation~\(\eta\) are the ones defined by the Kleisli
+                triple.
 
-        This precisely is the definition of a~\emph{monad}~\((T,\eta,\mu)\).
+            \item This precisely is the definition of
+                a~\emph{monad}~\((T,\eta,\mu)\).
 
-        Every Kleisli triple induces a monad.
+            \item Every Kleisli triple induces a monad.
+
+            \item In fact, we will see that the converse is also true.
+        \end{itemize}
     }
 
     \pause
