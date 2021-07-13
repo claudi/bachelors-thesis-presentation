@@ -113,16 +113,40 @@
 
     \begin{example}[Side-effects]
         If~\(\tilde{f}:A\longrightarrow B\) has side-effects, we can define a
-        function to track the effects on the set of states~\(S\) and the result
+        function to track the effects on the set of states~\(S\) and the
+        original result
         \[
-            f:A\longrightarrow(S\times B)^{S}
+            f:S\times A\longrightarrow S\times B
         \]
         which has no side-effects.
         \note<3>{Explain exponential notation}
     \end{example}
 \end{frame}
 
-\begin{frame}{Procedure purifying generalization}
+\begin{frame}{Procedure purifying examples}
+    We can make an impure function pure by changing its codomain.
+
+    \begin{example}[Non-determinism]
+        If~\(\tilde{f}:A\longrightarrow B\) is non-deterministic, we can define
+        a function of all possible outputs
+        \[
+            f:A\longrightarrow\mathcal{P}(B)
+        \]
+        which becomes deterministic
+    \end{example}
+
+    \begin{example}[Side-effects]
+        If~\(\tilde{f}:A\longrightarrow B\) has side-effects, we can define a
+        function to track the effects on the set of states~\(S\) and the
+        original result
+        \[
+            f:A\longrightarrow(S\times B)^{S}
+        \]
+        which has no side-effects.
+    \end{example}
+\end{frame}
+
+\begin{frame}{Procedure purifying abstraction}
     \begin{definition}[Kleisli triples]
         We define a~\emph{Kleisli triple} over a category~\(\cat{C}\) as a
         triple~\((T,\eta,(-)^{\ast})\) consisting of
