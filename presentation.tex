@@ -273,8 +273,8 @@
     \note<1>{Broadly speaking\par}
     \note<1>{Define \emph{type}}
 
-    A~\mintinline{Haskell}{Monad m} in Haskell can be regarded as a map
-    between~\emph{types}, and has two operations
+    A~\mintinline{Haskell}{Monad m} in Haskell is a~\emph{type} constructor, and
+    has two operations
     \begin{minted}{Haskell}
 (>>=) :: m a -> (a -> m b) -> m b
     \end{minted}
@@ -293,9 +293,13 @@ return :: a -> m a
 
     \pause
 
-    Which remind us of~\((-)^{\ast}\), which for all~\(f:A\longrightarrow TB\)
-    gave~\(f^{\ast}:TA\longrightarrow TB\), and the
-    map~\(\eta_{A}:A\longrightarrow TA\), respectively.
+    which correlate as
+
+    \begin{align*}
+        \text{\mintinline{Haskell}{m}} &\Longleftrightarrow T \\
+        \text{\mintinline{Haskell}{>>=}} &\Longleftrightarrow (-)^{\ast} \\
+        \text{\mintinline{Haskell}{return}} &\Longleftrightarrow \eta
+    \end{align*}
 
     \note<2>{Start with~\mintinline{Haskell}{return}
 
@@ -306,8 +310,8 @@ return :: a -> m a
 \end{frame}
 
 \begin{frame}[fragile]{Haskell}
-    A~\mintinline{Haskell}{Monad m} in Haskell can be regarded as a map
-    between~\emph{types}, and has two operations
+    A~\mintinline{Haskell}{Monad m} in Haskell is a~\emph{type} constructor, and
+    has two operations
     \begin{minted}{Haskell}
 (>>=) :: (m a, (a -> m b)) -> m b
     \end{minted}
@@ -315,10 +319,13 @@ return :: a -> m a
     \begin{minted}{Haskell}
 return :: a -> m a
     \end{minted}
+    which correlate as
 
-    Which remind us of~\((-)^{\ast}\), which for all~\(f:A\longrightarrow TB\)
-    gave~\(f^{\ast}:TA\longrightarrow TB\), and the
-    map~\(\eta_{A}:A\longrightarrow TA\), respectively.
+    \begin{align*}
+        \text{\mintinline{Haskell}{m}} &\Longleftrightarrow T \\
+        \text{\mintinline{Haskell}{>>=}} &\Longleftrightarrow (-)^{\ast} \\
+        \text{\mintinline{Haskell}{return}} &\Longleftrightarrow \eta
+    \end{align*}
 \end{frame}
 
 \begin{frame}[fragile]{Haskell}
@@ -331,10 +338,13 @@ return :: a -> m a
     \begin{minted}{Haskell}
 return :: a -> m a
     \end{minted}
+    which correlate as
 
-    Which remind us of~\((-)^{\ast}\), which for all~\(f:A\longrightarrow TB\)
-    gave~\(f^{\ast}:TA\longrightarrow TB\), and the
-    map~\(\eta_{A}:A\longrightarrow TA\), respectively.
+    \begin{align*}
+        \text{\mintinline{Haskell}{m}} &\Longleftrightarrow T \\
+        \text{\mintinline{Haskell}{>>=}} &\Longleftrightarrow (-)^{\ast} \\
+        \text{\mintinline{Haskell}{return}} &\Longleftrightarrow \eta
+    \end{align*}
 \end{frame}
 
 \begin{frame}[fragile]{Haskell}
@@ -347,10 +357,13 @@ return :: a -> m a
     \begin{minted}{Haskell}
 return :: a -> m a
     \end{minted}
+    which correlate as
 
-    Which remind us of~\((-)^{\ast}\), which for all~\(f:A\longrightarrow TB\)
-    gave~\(f^{\ast}:TA\longrightarrow TB\), and the
-    map~\(\eta_{A}:A\longrightarrow TA\), respectively.
+    \begin{align*}
+        \text{\mintinline{Haskell}{m}} &\Longleftrightarrow T \\
+        \text{\mintinline{Haskell}{>>=}} &\Longleftrightarrow (-)^{\ast} \\
+        \text{\mintinline{Haskell}{return}} &\Longleftrightarrow \eta
+    \end{align*}
 \end{frame}
 
 \begin{frame}{Conclusions}
