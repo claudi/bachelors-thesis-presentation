@@ -177,7 +177,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Kleisli triples and monads}
-    \begin{theorem}
+    \begin{theorem}[Monad]
         A Kleisli triple~\((T,\eta,(-)^{\ast})\) induces
         \begin{itemize}
             \item an endofunctor~\(T:\cat{C}\rightarrow\cat{C}\),
@@ -218,11 +218,8 @@
     \pause
 
     \begin{theorem}
-        A monad~\((T,\eta,\mu)\) induces a Kleisli triple
-        \begin{itemize}
-            \item for any morphism~\(f:A\rightarrow B\)
-                set~\(f^{\ast}=\mu_{B}\circ Tf\)
-        \end{itemize}
+        A monad~\((T,\eta,\mu)\) induces a Kleisli: triple for any
+        morphism~\(f:A\rightarrow B\) set~\(f^{\ast}=\mu_{B}\circ Tf\).
     \end{theorem}
 
     \note<2>{
