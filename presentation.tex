@@ -329,8 +329,8 @@ return :: a -> m a
 \end{frame}
 
 \begin{frame}[fragile]{Haskell}
-    A~\mintinline{Haskell}{Monad m} in Haskell can be regarded as a map
-    between~\emph{types}, and has two operations
+    A~\mintinline{Haskell}{Monad m} in Haskell is a~\emph{type} constructor, and
+    has two operations
     \begin{minted}{Haskell}
 (>>=) :: ((a -> m b), m a) -> m b
     \end{minted}
@@ -348,8 +348,8 @@ return :: a -> m a
 \end{frame}
 
 \begin{frame}[fragile]{Haskell}
-    A~\mintinline{Haskell}{Monad m} in Haskell can be regarded as a map
-    between~\emph{types}, and has two operations
+    A~\mintinline{Haskell}{Monad m} in Haskell is a~\emph{type} constructor, and
+    has two operations
     \begin{minted}{Haskell}
 (>>=) :: (a -> m b) -> (m a -> m b)
     \end{minted}
